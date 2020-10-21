@@ -66,6 +66,11 @@ async function setup() {
   }
 }
 
+async function refreshVault(vault) {
+  vault.reset();
+  await vault.prefetch();
+}
+
 // Deposit the specified amount of collateral.
 async function lockCollateral(vaultId, amount) {
   try {
@@ -88,6 +93,7 @@ async function lockCollateral(vaultId, amount) {
       },
     });
     await txMgr.confirm(lock, 3);
+    await refreshVault(vault);
     console.log(
       [
         vault.collateralAmount, // amount of collateral tokens
@@ -123,6 +129,7 @@ async function drawDai(vaultId, amount) {
       },
     });
     await txMgr.confirm(draw, 3);
+    await refreshVault(vault);
     console.log(
       [
         vault.collateralAmount, // amount of collateral tokens
@@ -158,6 +165,7 @@ async function lockAndDraw(vaultId, ethAmount, daiAmount) {
       },
     });
     await txMgr.confirm(lockdraw, 3);
+    await refreshVault(vault);
     console.log(
       [
         vault.collateralAmount, // amount of collateral tokens
@@ -193,6 +201,7 @@ async function wipeDai(vaultId, amount) {
       },
     });
     await txMgr.confirm(wipe, 3);
+    await refreshVault(vault);
     console.log(
       [
         vault.collateralAmount, // amount of collateral tokens
@@ -228,6 +237,7 @@ async function wipeAll(vaultId) {
       },
     });
     await txMgr.confirm(wipeAll, 3);
+    await refreshVault(vault);
     console.log(
       [
         vault.collateralAmount, // amount of collateral tokens
@@ -263,6 +273,7 @@ async function freeCollateral(vaultId, amount) {
       },
     });
     await txMgr.confirm(free, 3);
+    await refreshVault(vault);
     console.log(
       [
         vault.collateralAmount, // amount of collateral tokens
@@ -298,6 +309,7 @@ async function wipeAndFree(vaultId, wipeAmount, freeAmount) {
       },
     });
     await txMgr.confirm(wipeFree, 3);
+    await refreshVault(vault);
     console.log(
       [
         vault.collateralAmount, // amount of collateral tokens
@@ -334,6 +346,7 @@ async function wipeAllAndFree(vaultId, freeAmount) {
       },
     });
     await txMgr.confirm(wipeAllFree, 3);
+    await refreshVault(vault);
     console.log(
       [
         vault.collateralAmount, // amount of collateral tokens
