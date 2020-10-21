@@ -11,8 +11,8 @@ async function main() {
   await setup();
 
   let action = process.argv[2];
-  if (action == "lockEth") {
-    console.log("Lock Eth....");
+  if (action == "lockCollateral") {
+    console.log("Lock Collateral....");
     lockCollateral(Number(process.argv[3]), Number(process.argv[4]));
   } else if (action == "drawDai") {
     console.log("Draw Dai....");
