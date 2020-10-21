@@ -31,37 +31,42 @@ node CreateNewVault.js #EthAmount #DaiAmount
 
 # Manage Vault
 
+- lockCollateral
 Deposit the specified amount of collateral.
 ```
 node VaultManager.js lockCollateral #VaultID #EthAmount
 ```
+- drawDai
 Generate the specified amount of Dai.
 ```
 node VaultManager.js drawDai #VaultID #DaiAmount  
 ```
+- lockAndDraw
 Deposit some collateral and generate some Dai in a single transaction.
 ```
 node VaultManager.js lockAndDraw #VaultID #EthAmount #DaiAmount 
 ```
-
+- wipeDai
 Pay back the specified amount of Dai. 
 ```
 node VaultManager.js wipeDai #VaultID #DaiAmount 
 ```
+- wipeAll
 Pay back all debt. This method ensures that dust amounts do not remain.
 ```
 node VaultManager.js wipeAll #VaultID 
 ```
-
+- freeCollateral
 Withdraw the specified amount of collateral.
 ```
 node VaultManager.js freeCollateral #VaultID #EthAmount 
 ```
+- wipeAndFree
 Pay back some debt and withdraw some collateral in a single transaction.
 ```
 node VaultManager.js wipeAndFree #VaultID #DaiAmount #EthAmount 
 ```
-
+- wipeAllAndFree
 Pay back all debt, ensuring dust amounts do not remain, and withdraw a specified amount of collateral in a single transaction.
 ```
 node VaultManager.js wipeAllAndFree #VaultID #EthAmount 
