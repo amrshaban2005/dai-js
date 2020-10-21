@@ -5,40 +5,64 @@ The library features a pluggable, service-based architecture, which allows users
 
 # Usage
 
-- Clone this repository and install its dependencies:
+Clone this repository and install its dependencies:
 
-- git clone https://github.com/amrshaban2005/dai-js.git
-- cd dai-js
-- npm install
+```
+ git clone https://github.com/amrshaban2005/dai-js.git
+ cd dai-js
+ npm install
+```
+then create .env file
 
 # Read Vault
-node ReadVault.js #VaultID
 
+Read vault that was created in the Oasis Borrow UI. 
+
+```
+node ReadVault.js #VaultID
+```
 # Create New Vault
+
+Opens a new Vault, locks ETH into it, and draws out Dai. 
+
+```
 node CreateNewVault.js #EthAmount #DaiAmount
+```
 
 # Manage Vault
-- Deposit the specified amount of collateral.
-- node VaultManager.js lockCollateral #VaultID #EthAmount
 
-- Generate the specified amount of Dai.
-- node VaultManager.js drawDai #VaultID #DaiAmount  
+Deposit the specified amount of collateral.
+```
+node VaultManager.js lockCollateral #VaultID #EthAmount
+```
+Generate the specified amount of Dai.
+```
+node VaultManager.js drawDai #VaultID #DaiAmount  
+```
+Deposit some collateral and generate some Dai in a single transaction.
+```
+node VaultManager.js lockAndDraw #VaultID #EthAmount #DaiAmount 
+```
 
-- Deposit some collateral and generate some Dai in a single transaction.
-- node VaultManager.js lockAndDraw #VaultID #EthAmount #DaiAmount 
+Pay back the specified amount of Dai. 
+```
+node VaultManager.js wipeDai #VaultID #DaiAmount 
+```
+Pay back all debt. This method ensures that dust amounts do not remain.
+```
+node VaultManager.js wipeAll #VaultID 
+```
 
-- Pay back the specified amount of Dai. 
-- node VaultManager.js wipeDai #VaultID #DaiAmount 
+Withdraw the specified amount of collateral.
+```
+node VaultManager.js freeCollateral #VaultID #EthAmount 
+```
+Pay back some debt and withdraw some collateral in a single transaction.
+```
+node VaultManager.js wipeAndFree #VaultID #DaiAmount #EthAmount 
+```
 
-- Pay back all debt. This method ensures that dust amounts do not remain.
-- node VaultManager.js wipeAll #VaultID 
-
-- Withdraw the specified amount of collateral.
-- node VaultManager.js freeCollateral #VaultID #EthAmount 
-
-- Pay back some debt and withdraw some collateral in a single transaction.
-- node VaultManager.js wipeAndFree #VaultID #DaiAmount #EthAmount 
-
-- Pay back all debt, ensuring dust amounts do not remain, and withdraw a specified amount of collateral in a single transaction.
-- node VaultManager.js wipeAllAndFree #VaultID #EthAmount 
- 
+Pay back all debt, ensuring dust amounts do not remain, and withdraw a specified amount of collateral in a single transaction.
+```
+node VaultManager.js wipeAllAndFree #VaultID #EthAmount 
+```
