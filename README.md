@@ -1,7 +1,8 @@
 # Dai.js
 Dai.js is a JavaScript library that makes it easy to build applications on top of MakerDAO's platform of smart contracts. You can use Maker's contracts to open Vaults (formerly known as CDPs), deposit collateral and generate Dai, trade tokens on decentralized exchanges, and more. 
 
-The library features a pluggable, service-based architecture, which allows users to easily integrate Maker functionality into their own apps. It also includes convenient configuration presets for out-of-the-box usability and support for both front-end and back-end applications, plus plugins for integrating with Maker governance, hardware wallets, and both Single-Collateral and Multi-Collateral Dai.
+The library features a pluggable, service-based architecture, which allows users to easily integrate Maker functionality into their own apps. It also includes convenient configuration presets for out-of-the-box usability and support for both front-end and back-end applications, plus plugins for integrating with Maker governance, hardware wallets, and both Single-Collateral and Multi-Collateral Dai as described in [Getting-Started](https://docs.makerdao.com/dai.js/getting-started)..
+
 
 # Usage
 
